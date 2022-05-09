@@ -1,0 +1,177 @@
+@font-face {
+    font-family: "monfont";
+    src: url("../Font/Pacifico-Regular.ttf");
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2f4f4f;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(184, 27, 27), yellow);
+    clip-path: circle(22% at 30% 20%);
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(252, 246, 246), rgb(179, 71, 161));
+    clip-path: circle(20% at 70% 90%);
+    z-index: 1;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 4px 4px 5px rgba(255, 255, 255, 0.4),
+        inset -4px -4px 5px rgba(0, 0, 0, 0.2),
+        10px 40px 40px rgba(0, 0, 0, 0.4);
+
+    padding: 10px 20px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+#title {
+    font-size: 45px;
+    font-family: "monfont", cursive;
+}
+
+#minuteur {
+    display: grid;
+    grid-template-columns: repeat(4, 75px);
+    gap: 5px;
+    margin: 4vh auto;
+    color: #fff;
+
+}
+
+.box {
+    height: 70px;
+    text-align: center;
+    background-color: #1b1b1b;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box>div:first-child {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.unite {
+    padding: 5px ;
+    background-color: #0a0a0a;
+    font-size: 15px;
+    text-align: center;
+}
+
+@media only screen and (min-width : 500px) {
+
+    #title {
+        font-size: 50px;
+    }
+    
+    #minuteur {
+        grid-template-columns: repeat(4, 100px);
+        gap: 10px;
+        margin: 5vh auto;
+    }
+    
+    .box {
+        height: 120px;
+    }
+    
+    .box>div:first-child {
+        font-size: 80px;
+    }
+ 
+}
+
+
+@media only screen and (min-width : 768px) {
+    #title {
+        font-size: 80px;
+    }
+    
+    #minuteur {
+        grid-template-columns: repeat(4, 170px);
+    }
+    
+    .box {
+        height: 180px;
+    }
+    
+    .box>div:first-child {
+        font-size: 120px;
+    }
+ 
+}
+
+
+
+@media only screen and (min-width : 1060px) {
+
+   
+    #wrapper {
+        padding: 40px 80px;
+    }
+
+
+    #title {
+        font-size: 60px;
+    }
+
+    #minuteur {
+        grid-template-columns: repeat(4, 200px);
+        gap: 25px;
+        margin: 10vh auto;
+    }
+
+    .box {
+        height: 200px;
+    }
+
+    .box>div:first-child {
+        font-size: 130px;
+        padding: 20px;
+    }
+
+    .unite {
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+
+}

@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2f4f4f;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(184, 27, 27), yellow);
+    clip-path: circle(22% at 30% 20%);
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(252, 246, 246), rgb(179, 71, 161));
+    clip-path: circle(20% at 70% 90%);
+    z-index: 1;
+}
+
+
+
+.clock {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../Images/horloge.png);
+    background-size: cover;
+    border-radius: 50%;
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 4px 4px 5px rgba(255, 255, 255, 0.4),
+        inset -4px -4px 5px rgba(0, 0, 0, 0.2),
+        10px 40px 40px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.clock:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 10000;
+}
+
+.clock .hour,
+.clock .min,
+.clock .sec {
+    position: absolute;
+    z-index: 5;
+}
+
+.clock .hour,
+.hr {
+    width: 160px;
+    height: 160px;
+}
+
+.clock .min,
+.mn {
+    width: 190px;
+    height: 190px;
+}
+
+.clock .sec,
+.sc {
+    width: 230px;
+    height: 230px;
+}
+
+.hr,
+.mn,
+.sc {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hr::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 80px;
+    background: #ff105e;
+    z-index: 10;
+    border-radius: 6px 6px 0 0;
+}
+
+.mn::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 90px;
+    background: #fff;
+    z-index: 11;
+    border-radius: 6px 6px 0 0;
+}
+
+.sc::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: #fff;
+    z-index: 11;
+    border-radius: 6px 6px 0 0;
+}
+
+/***********************Horloge numérique********************************/
+.numClock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 28%;
+    width: 60%;
+    height: 50px;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.308);
+    border-radius: 10px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.numHour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+}
+
+.numDate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
+
+@media only screen and (min-width : 500px) {
+    .clock {
+        width: 500px;
+        height: 500px;
+    }
+
+    .numClock {
+        width: 250px;
+    }
+}
+
+@media only screen and (min-width : 768px) {
+    .clock {
+        width: 750px;
+        height: 750px;
+    }
+
+
+    .clock:before {
+        width: 25px;
+        height: 25px;
+       
+    }
+
+    .hr::before {
+        width: 16px;
+        height: 180px;
+    }
+
+    .mn::before {
+        width: 8px;
+        height: 200px;
+    }
+
+    .sc::before {
+        width: 4px;
+        height: 300px;
+    }
+
+
+
+    .clock .hour,
+    .hr {
+        width: 350px;
+        height:350px;
+    }
+
+    .clock .min,
+    .mn {
+        width: 400px;
+        height: 400px;
+    }
+
+    .clock .sec,
+    .sc {
+        width: 500px;
+        height: 500px;
+    }
+
+}

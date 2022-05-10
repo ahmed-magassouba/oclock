@@ -8,10 +8,10 @@
     <title>Horloge</title>
 
     <!-- link css -->
-    <link rel="stylesheet" href="Css/index.css">
+    <link rel="stylesheet" href="Css/horloge.css">
 
     <!-- script js -->
-    <script src="Js/script.js"></script>
+    <script src="Js/horloge.js"></script>
 
 </head>
 

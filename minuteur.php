@@ -16,8 +16,12 @@
 </head>
 
 <body>
+
+    <header></header>
+
+
     <div id="wrapper">
-        <div id="title">Muniteur</div>
+        <div id="title">Minuteur</div>
         <div id="minuteur">
 
             <div class="box">
@@ -42,6 +46,33 @@
 
         </div>
     </div>
+
+
+    <form action="">
+
+        <span>
+            <label for="time">Entrer votre date</label>
+            <input type="datetime-local" name="time" id="time">
+        </span>
+
+        <div>
+            <button id="play">
+                <img src="Images/play.png" alt="">
+            </button>
+
+            <button id="pause">
+                <img src="Images/pause.png" alt="">
+            </button>
+
+            <button id="refresh">
+                <img src="Images/refresh.png" alt="">
+            </button>
+        </div>
+
+    </form>
+
+
+    <footer></footer>
 </body>
 
 </html>

@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let heure = document.querySelector("#h");
   let minute = document.querySelector("#m");
   let second = document.querySelector("#s");
+  let milliSecond = document.querySelector("#ms");
 
   // On recupère la date du jour
   let now = new Date();
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dayOnMillisecond = 1000 * 60 * 60 * 24;
   const hourOnMillisecond = 1000 * 60 * 60;
   const minuteOnMillisecond = 1000 * 60;
+  const secondOnMillisecond = 1000;
 
   // On recupère la date de fin de notre decompte
   // Dans notre champ input on recupère la sasie de l'utilisateur
@@ -29,75 +31,105 @@ document.addEventListener("DOMContentLoaded", function () {
 
   play.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log(timeInsert.value);
-
-    const endDate = new Date(timeInsert.value);
-
-    getCountdown = () => {
-      // On recupère la date du jour a l'instant t
-      let nowDate = Date.now();
-
-      // On recupère le temps restant avant la fin du decompte
-      let timeRemaining = endDate - nowDate; //+ dateOffsetInMinutes * minuteOnMillisecond
-
-      // On met le timeRemaining en format jour, heure, minute, seconde
-
-      //jours
-      let days = Math.floor(timeRemaining / dayOnMillisecond);
-      if (days < 10) {
-        days = "0" + days;
+    if (
+      timeInsert.value === null ||
+      timeInsert.value === undefined ||
+      timeInsert.value === ""
+    ) {
+      alert("Veuillez entrer un temps d'arrêt du minuteur");
+    } else {
+      console.log(timeInsert.value);
+      let timeChoice;
+      if (timeChoice != null || timeChoice != undefined || timeChoice != "") {
+        timeChoice = "";
       }
-      //heures
-      let restOfTimeWhithoutDay = timeRemaining - days * dayOnMillisecond;
-      let hours = Math.floor(restOfTimeWhithoutDay / hourOnMillisecond);
-      if (hours < 10) {
-        hours = "0" + hours;
-      }
+      timeChoice = timeInsert.value;
 
-      //minutes
-      let restOfTimeWhithoutHour =
-        restOfTimeWhithoutDay - hours * hourOnMillisecond;
+      let endDate = new Date(timeChoice);
+      getCountdown = () => {
+        // On recupère la date du jour a l'instant t
+        let nowDate = Date.now();
 
-      let minutes = Math.floor(restOfTimeWhithoutHour / minuteOnMillisecond);
-      if (minutes < 10) {
-        minutes = "0" + minutes;
-      }
+        // On recupère le temps restant avant la fin du decompte
+        let timeRemaining = endDate - nowDate; //+ dateOffsetInMinutes * minuteOnMillisecond
 
-      //secondes
-      let restOfTimeWhithoutMinute =
-        restOfTimeWhithoutHour - minutes * minuteOnMillisecond;
+        // On met le timeRemaining en format jour, heure, minute, seconde
 
-      let seconds = Math.floor(restOfTimeWhithoutMinute / 1000);
-      if (seconds < 10) {
-        seconds = "0" + seconds;
-      }
+        //jours
+        let days = Math.floor(timeRemaining / dayOnMillisecond);
+        if (days < 10) {
+          days = "0" + days;
+        }
+        //heures
+        let restOfTimeWhithoutDay = timeRemaining - days * dayOnMillisecond;
+        let hours = Math.floor(restOfTimeWhithoutDay / hourOnMillisecond);
+        if (hours < 10) {
+          hours = "0" + hours;
+        }
 
-      console.log(days, hours, minutes, seconds);
+        //minutes
+        let restOfTimeWhithoutHour =
+          restOfTimeWhithoutDay - hours * hourOnMillisecond;
+        let minutes = Math.floor(restOfTimeWhithoutHour / minuteOnMillisecond);
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
 
-      jour.textContent = days;
-      heure.textContent = hours;
-      minute.textContent = minutes;
-      second.textContent = seconds;
+        //secondes
+        let restOfTimeWhithoutMinute =
+          restOfTimeWhithoutHour - minutes * minuteOnMillisecond;
+        let seconds = Math.floor(restOfTimeWhithoutMinute / 1000);
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
 
-      if (timeRemaining <= 0) {
-        clearInterval(countdownInterval);
+        //millisecondes
+        let restOfTimeWhithoutSecond =
+          restOfTimeWhithoutMinute - seconds * secondOnMillisecond;
+        let milliSeconds = restOfTimeWhithoutSecond ;
+        if (milliSeconds < 10) {
+          milliSeconds = "00" + milliSeconds;
+        }
 
-        //On personalise la fin du decompte avec un background sur le body
-        body.style.backgroundImage ="url('https://media.giphy.com/media/3oEduJIWQX9QQqQXIY/giphy.gif')";
-          
+        console.log(days, hours, minutes, seconds);
 
-        jour.textContent = "00";
-        heure.textContent = "00";
-        minute.textContent = "00";
-        second.textContent = "00";
+        jour.textContent = days;
+        heure.textContent = hours;
+        minute.textContent = minutes;
+        second.textContent = seconds;
+        milliSecond.textContent = milliSeconds;
 
-        title.innerHTML = "Le temps est écoulé";
-      }
-    };
+        if (timeRemaining <= 0) {
+          clearInterval(countdownInterval);
 
-    let countdownInterval = setInterval(getCountdown, 1000);
+          //On personalise la fin du decompte avec un background sur le body
+          body.style.backgroundImage =
+            "url('https://media.giphy.com/media/3oEduJIWQX9QQqQXIY/giphy.gif')";
 
-    //On initialise une fonction qui va faire notre decompte
-    getCountdown();
+          jour.textContent = "00";
+          heure.textContent = "00";
+          minute.textContent = "00";
+          second.textContent = "00";
+          milliSecond.textContent = "000";
+          title.innerHTML = "Le temps est écoulé";
+        }
+      };
+
+      let countdownInterval = setInterval(getCountdown, 100);
+
+      //On initialise une fonction qui va faire notre decompte
+      getCountdown();
+    }
+  });
+
+  let refresh = document.querySelector("#refresh");
+  refresh.addEventListener("click", function (event) {
+    event.preventDefault();
+    location.reload();
+  });
+
+  let pause = document.querySelector("#pause");
+  pause.addEventListener("click", function (event) {
+    event.preventDefault();
   });
 });

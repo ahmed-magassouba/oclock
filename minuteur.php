@@ -44,15 +44,20 @@
                 <div class="unite">Seconde(s)</div>
             </div>
 
+            <div class="box">
+                <div id="ms"></div>
+                <div class="unite">Mseconde(s)</div>
+            </div>
+
         </div>
     </div>
 
 
-    <form action="">
+    <form>
 
         <span>
-            <label for="time">Entrer votre date</label>
-            <input type="datetime-local" name="time" id="time">
+            <label>Temps d'arrêt</label>
+            <input type="datetime-local" id="time">
         </span>
 
         <div>

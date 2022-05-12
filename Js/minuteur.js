@@ -27,10 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let timeInsert = document.querySelector("#time");
   let play = document.querySelector("#play");
 
+  let endDate = "";
   //On crée un évènement pour le champ input
-
   play.addEventListener("click", function (event) {
     event.preventDefault();
+
     if (
       timeInsert.value === null ||
       timeInsert.value === undefined ||
@@ -38,14 +39,16 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       alert("Veuillez entrer un temps d'arrêt du minuteur");
     } else {
-      console.log(timeInsert.value);
+      // console.log(timeInsert.value);
+
       let timeChoice;
       if (timeChoice != null || timeChoice != undefined || timeChoice != "") {
         timeChoice = "";
       }
       timeChoice = timeInsert.value;
 
-      let endDate = new Date(timeChoice);
+      endDate = new Date(timeChoice);
+
       getCountdown = () => {
         // On recupère la date du jour a l'instant t
         let nowDate = Date.now();
@@ -86,25 +89,24 @@ document.addEventListener("DOMContentLoaded", function () {
         //millisecondes
         let restOfTimeWhithoutSecond =
           restOfTimeWhithoutMinute - seconds * secondOnMillisecond;
-        let milliSeconds = restOfTimeWhithoutSecond ;
+        let milliSeconds = restOfTimeWhithoutSecond;
         if (milliSeconds < 10) {
           milliSeconds = "00" + milliSeconds;
         }
 
-        console.log(days, hours, minutes, seconds);
+        // console.log(days, hours, minutes, seconds);
 
         jour.textContent = days;
         heure.textContent = hours;
         minute.textContent = minutes;
         second.textContent = seconds;
         milliSecond.textContent = milliSeconds;
-
+        // console.log(timeRemaining);
         if (timeRemaining <= 0) {
           clearInterval(countdownInterval);
 
           //On personalise la fin du decompte avec un background sur le body
-          body.style.backgroundImage =
-            "url('https://media.giphy.com/media/3oEduJIWQX9QQqQXIY/giphy.gif')";
+          body.style.backgroundImage = "url('Images/sablier.png')";
 
           jour.textContent = "00";
           heure.textContent = "00";
@@ -112,24 +114,37 @@ document.addEventListener("DOMContentLoaded", function () {
           second.textContent = "00";
           milliSecond.textContent = "000";
           title.innerHTML = "Le temps est écoulé";
+        } else {
+          title.innerHTML = "Le minuteur est lancé";
+          //On personalise la fin du decompte avec un background sur le body
+          body.style.backgroundImage = "url('')";
         }
       };
 
-      let countdownInterval = setInterval(getCountdown, 100);
+      let countdownInterval = setInterval(
+        () => requestAnimationFrame(getCountdown),
+        100
+      );
+
+      //Mettre le minutteur en pause
+      let pause = document.querySelector("#pause");
+
+      pause.addEventListener("click", function (event) {
+        event.preventDefault();
+        clearInterval(countdownInterval);
+      });
 
       //On initialise une fonction qui va faire notre decompte
       getCountdown();
     }
   });
 
+
+  //button pour rafraichir la page
   let refresh = document.querySelector("#refresh");
   refresh.addEventListener("click", function (event) {
     event.preventDefault();
     location.reload();
   });
-
-  let pause = document.querySelector("#pause");
-  pause.addEventListener("click", function (event) {
-    event.preventDefault();
-  });
+  
 });

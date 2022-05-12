@@ -150,7 +150,14 @@ button {
     cursor: pointer;
 }
 
+
 button:hover {
+    background-color: #1b1b1b;
+    transition: 0.2s;
+}
+
+
+button:focus{
     background-color: #1b1b1b;
     transition: 0.2s;
 }
@@ -167,7 +174,7 @@ button img {
     }
 
     #minuteur {
-        grid-template-columns: repeat(5, 90px);
+        grid-template-columns: repeat(5, 85px);
         gap: 10px;
         margin: 5vh auto;
     }

@@ -19,7 +19,7 @@
 
     <header></header>
 
-
+<main>
     <div id="wrapper">
         <div id="title">Minuteur</div>
         <div id="minuteur">
@@ -76,7 +76,11 @@
 
     </form>
 
+    <audio id="audio">
+        <source src="Audio/audio.mp3" type="audio/mpeg">   
+    </audio>
 
+</main>
     <footer></footer>
 </body>
 

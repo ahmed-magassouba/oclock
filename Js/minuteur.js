@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let timeInsert = document.querySelector("#time");
   let play = document.querySelector("#play");
 
-  let endDate = "";
+
   //On crée un évènement pour le champ input
   play.addEventListener("click", function (event) {
     event.preventDefault();
@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       alert("Veuillez entrer un temps d'arrêt du minuteur");
     } else {
+     
       // console.log(timeInsert.value);
 
       let timeChoice;
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       timeChoice = timeInsert.value;
 
-      endDate = new Date(timeChoice);
+     let endDate = new Date(timeChoice);
 
       getCountdown = () => {
         // On recupère la date du jour a l'instant t
@@ -114,6 +115,14 @@ document.addEventListener("DOMContentLoaded", function () {
           second.textContent = "00";
           milliSecond.textContent = "000";
           title.innerHTML = "Le temps est écoulé";
+
+          play.style.display = "block";
+          pause.style.display = "none";
+
+          //On met le son de fin du decompte
+          let audio = document.querySelector("#audio");
+          audio.play();
+
         } else {
           title.innerHTML = "Le minuteur est lancé";
           //On personalise la fin du decompte avec un background sur le body
@@ -126,19 +135,27 @@ document.addEventListener("DOMContentLoaded", function () {
         100
       );
 
+      //On initialise une fonction qui va faire notre decompte
+      getCountdown();
+
       //Mettre le minutteur en pause
       let pause = document.querySelector("#pause");
+      let count =1;
+      if (count==1){
+        play.style.display = "none";
+        pause.style.display = "block";
+      }
 
       pause.addEventListener("click", function (event) {
         event.preventDefault();
+        pause.style.display = "none";
+        play.style.display = "block";
         clearInterval(countdownInterval);
+        count=0;
+        title.innerHTML = "Le minuteur est en pause";
       });
-
-      //On initialise une fonction qui va faire notre decompte
-      getCountdown();
     }
   });
-
 
   //button pour rafraichir la page
   let refresh = document.querySelector("#refresh");

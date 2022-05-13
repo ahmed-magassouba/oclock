@@ -10,6 +10,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     display: flex;
     justify-content: center;
@@ -43,6 +44,10 @@ body::after {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: inset 4px 4px 5px rgba(255, 255, 255, 0.4),
@@ -106,46 +111,14 @@ main {
     text-align: center;
 }
 
-form {
-    z-index: 10;
-    margin-top: 25px;
-}
-
-form span {
+.buttonWrapper {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-form span label {
-    font-size: 30px;
-    font-family: "monfont", cursive;
-    margin-bottom: 10px;
-}
-
-input {
-    background: none;
-    outline: none;
-    height: 40px;
-    width: 250px;
-    font-size: 20px;
-    border-radius: 10px;
-    font-family: "monfont", cursive;
-    text-align: center;
-    margin: 10px;
-}
-
-form div {
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.3);
 }
 
-button {
+.button {
     background: none;
     border: none;
     border-radius: 50%;
@@ -160,28 +133,100 @@ button {
     transition: 0.2s;
     cursor: pointer;
     margin: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 2px black;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
 }
 
-#pause {
+.button:hover {
+    background-color: #1b1b1b;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.button:focus {
+    background-color: #1b1b1b;
+    color: #fff;
+    transition: 0.2s;
+}
+
+
+#start {
+    background-image: url(../images/play.png);
+    background-size: cover;
+}
+
+#reset {
+    background-image: url(../images/refresh.png);
+    background-size: cover;
+}
+
+.laps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    max-height: 250px;
+   overflow-y: auto;
+    color: #fff;
+    padding: 15px;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* box-shadow: inset 4px 4px 5px rgba(255, 255, 255, 0.4),
+        inset -4px -4px 5px rgba(0, 0, 0, 0.2),
+        10px 40px 40px rgba(0, 0, 0, 0.4); */
+    border-radius: 10px;
+}
+
+
+
+.laps::-webkit-scrollbar {
     display: none;
 }
 
+.lap-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #444;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    margin-bottom: 10px;
+    font-family: "monfont", cursive;
+    font-size: 20px;
+}
 
-button:hover {
+.lap-clear {
+    border: none;
+    background-color: transparent;
+    padding: 0 4px;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    margin: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 2px black;
+    background-color: rgba(236, 0, 0, 0.397);
+    backdrop-filter: blur(8px);
+    font-family: "monfont", cursive;
+    font-size: 20px;
+}
+
+.lap-clear:hover {
     background-color: #1b1b1b;
+    color: #fff;
     transition: 0.2s;
 }
 
-
-button:focus {
-    background-color: #1b1b1b;
-    transition: 0.2s;
-}
-
-button img {
-    max-height: 100%;
-    max-width: 100%;
-}
 
 @media only screen and (min-width : 500px) {
 
@@ -239,7 +284,7 @@ button img {
 
 
     #wrapper {
-        padding: 10px 20px;
+        padding: 10px 10px;
     }
 
 
@@ -249,22 +294,22 @@ button img {
     }
 
     #minuteur {
-        grid-template-columns: repeat(5, 180px);
-        gap: 25px;
-        margin: 5vh auto;
+        grid-template-columns: repeat(5, 160px);
+        gap: 15px;
+        margin: 2vh auto;
     }
 
     .box {
-        height: 210px;
+        height: 180px;
     }
 
     .box>div:first-child {
-        font-size: 105px;
-        padding: 20px;
+        font-size: 100px;
+        padding: 10px;
     }
 
     .unite {
-        padding: 10px 20px;
+        padding: 10px 10px;
         font-size: 25px;
     }
 

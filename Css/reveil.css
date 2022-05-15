@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "monfont";
+    src: url("../Font/Pacifico-Regular.ttf");
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2f4f4f;
+    flex-direction: column;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(184, 27, 27), yellow);
+    clip-path: circle(22% at 30% 20%);
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(252, 246, 246), rgb(179, 71, 161));
+    clip-path: circle(20% at 70% 90%);
+    z-index: 1;
+}
+
+#alarmOptions{
+    display:none;
+}

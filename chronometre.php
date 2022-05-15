@@ -24,27 +24,27 @@
             <div id="minuteur">
 
                 <div class="box">
-                    <div id="j">1</div>
+                    <div id="j">00</div>
                     <div class="unite">Jour(s)</div>
                 </div>
 
                 <div class="box">
-                    <div id="h">01</div>
+                    <div id="h">00</div>
                     <div class="unite">Heure(s)</div>
                 </div>
 
                 <div class="box">
-                    <div id="m">47</div>
+                    <div id="m">00</div>
                     <div class="unite">Minute(s)</div>
                 </div>
 
                 <div class="box">
-                    <div id="s">20</div>
+                    <div id="s">00</div>
                     <div class="unite">Seconde(s)</div>
                 </div>
 
                 <div class="box">
-                    <div id="ms">330</div>
+                    <div id="ms">00</div>
                     <div class="unite">Mseconde(s)</div>
                 </div>
 
@@ -53,42 +53,17 @@
 
         <div class="buttonWrapper">
 
-            <button class="button" id="start"></button>
+            <button class="button lap hidden" id="lap">Lap</button>
 
-            <button class="button" id="stop">Lap</button>
+            <button class="button start" id="start"></button>
 
-            <button class="button" id="reset"></button>
+            <button class="button reset hidden" id="reset"></button>
 
         </div>
 
-        <ul class="laps">                           
-            <li class="lap-item">
-                <span class="number">#1</span>
-                <span class="time-stamp">01 : 43 : 07</span>
-            </li>
-            <li class="lap-item">
-                <span class="number">#1</span>
-                <span class="time-stamp">01 : 43 : 07</span>
-            </li>
-            <li class="lap-item">
-                <span class="number">#1</span>
-                <span class="time-stamp">01 : 43 : 07</span>
-            </li>
-            <li class="lap-item">
-                <span class="number">#1</span>
-                <span class="time-stamp">01 : 43 : 07</span>
-            </li>
-            <li class="lap-item">
-                <span class="number">#1</span>
-                <span class="time-stamp">01 : 43 : 07</span>
-            </li>
-            <li class="lap-item">
-                <span class="number">#1</span>
-                <span class="time-stamp">01 : 43 : 07</span>
-            </li>
-            <button class="lap-clear">Tout effacer</button>
+        <ul class="laps">
         </ul>
-
+        <button class="lap-clear hidden">Tout effacer</button>
     </main>
 
     <footer></footer>

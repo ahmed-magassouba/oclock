@@ -17,11 +17,11 @@
     <header></header>
     <main>
         <input type="datetime-local" name="" id="alarmTime">
-        <button id="alarmButton">Activé l'alarm</button>
+        <button id="alarmButton">Regler l'alarm</button>
 
         <div id="alarmOptions">
 
-        <button id="moore">5 minutes</button>
+        <button id="snooze">5 minutes</button>
 
         <button id="stop">Stop Alarm</button>
 

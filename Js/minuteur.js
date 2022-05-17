@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       pause.addEventListener("click", function (event) {
         event.preventDefault();
+        
         pause.style.display = "none";
         play.style.display = "block";
         clearInterval(countdownInterval);

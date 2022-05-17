@@ -34,9 +34,10 @@
 
         <form class="setAlarm">
             <div>
-                <input type="number" name="hour" id="hour" placeholder="HH" max="23" min="00">
+                <input type="datetime-local" name="date" id="date">
+                <!-- <input type="number" name="hour" id="hour" placeholder="HH" max="23" min="00">
                 <input type="number" name="min" id="min" placeholder="MM" max="59" min="00">
-                <input type="number" name="sec" id="sec" placeholder="SS" max="59" min="00">
+                <input type="number" name="sec" id="sec" placeholder="SS" max="59" min="00"> -->
 
             </div>
             <p>Entrer un message</p>

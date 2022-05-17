@@ -42,6 +42,124 @@ body::after {
     z-index: 1;
 }
 
-#alarmOptions{
-    display:none;
+main {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 4px 4px 5px rgba(255, 255, 255, 0.4),
+        inset -4px -4px 5px rgba(0, 0, 0, 0.2),
+        10px 40px 40px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    width: 90%;
+
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px 10px 0 0;
+}
+
+section img {
+    height: 40px;
+}
+
+section div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.623);
+    font-size: 20px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+}
+
+form div {
+    margin: 5px 0;
+}
+
+#message{
+width: 90%;
+height:40px;
+margin: 5px 0;
+outline: none;
+border: none;
+border-radius: 5px;
+background:rgba(0, 0, 0, 0.692);
+color: rgba(255, 255, 255, 0.685);
+font-size: 20px;
+text-align: center;
+}
+
+p img {
+    height: 40px;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 20px;
+    font-family: "monfont";
+    background: rgba(255, 255, 255, 0.089);
+    color: rgba(0, 0, 0, 0.692);
+}
+
+ul {
+    margin-top: 5px;
+    text-align: center;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+ul::-webkit-scrollbar {
+    display: none;
+}
+
+ul li {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 25px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+.set-alarm,
+.clear-alarm {
+    margin: 0 10px;
+    border: none;
+    background: none;
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.452);
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.568);
+
+}
+
+ul em {
+    padding-top: 10px;
+    color: #fff;
+}
+
+.deleteAlarm{
+    
 }

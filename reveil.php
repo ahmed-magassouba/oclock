@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -18,17 +18,45 @@
 <body>
     <header></header>
     <main>
-        <input type="datetime-local" name="" id="alarmTime">
-        <input type="text" id="message" placeholder="Entrer un message">
-        <button id="alarmButton">Activer l'alarm</button>
 
-        <div id="alarmOptions">
+        <p id=title></p>
+        <p id=messageAlarm></p>
 
-            <button id="snooze">Repousser de 5 minutes</button>
+        <section>
+            <img src="Images/horlo.png" alt="image de l'horloge">
+            <div>
+                <span id="date"></span>
+                <span id="clock"></span>
+            </div>
+        </section>
 
-            <button id="stop">Stop Alarm</button>
+        <p>Programmer un reveil </p>
 
-        </div>
+        <form class="setAlarm">
+            <div>
+                <input type="number" name="hour" id="hour" placeholder="HH" max="23" min="00">
+                <input type="number" name="min" id="min" placeholder="MM" max="59" min="00">
+                <input type="number" name="sec" id="sec" placeholder="SS" max="59" min="00">
+
+            </div>
+            <p>Entrer un message</p>
+            <input type="text" name="message" id="message">
+            <div class="controls">
+                <button type="submit" class="set-alarm">Ajouter</button>
+                <button type="reset" class="clear-alarm">Arrêter</button>
+            </div>
+        </form>
+
+        <p>
+            <img src="Images/alarm.png" alt="image alarm">
+            Alarmes à venir
+        </p>
+
+
+        <ul id="alarmList">
+            <em>Aucun reveil programmer</em>
+        </ul>
+
     </main>
     <footer></footer>
 </body>

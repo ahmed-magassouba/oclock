@@ -280,7 +280,7 @@ footer ul li a:hover {
     #minuteur {
         grid-template-columns: repeat(5, 85px);
         gap: 10px;
-        margin: 5vh auto;
+        margin: 5px;
     }
 
     .box {
@@ -332,28 +332,27 @@ footer ul li a:hover {
 
 
     #title {
-        font-size: 60px;
+        font-size: 50px;
         margin: 1vh auto;
     }
 
     #minuteur {
         grid-template-columns: repeat(5, 160px);
         gap: 15px;
-        margin: 2vh auto;
     }
 
     .box {
-        height: 180px;
+        height: 160px;
     }
 
     .box>div:first-child {
-        font-size: 100px;
+        font-size: 80px;
         padding: 10px;
     }
 
     .unite {
         padding: 10px 10px;
-        font-size: 25px;
+        font-size: 20px;
     }
 
 }

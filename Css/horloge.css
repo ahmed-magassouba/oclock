@@ -7,7 +7,7 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
     height: 100vh;
     background: #2f4f4f;
@@ -213,8 +213,8 @@ footer ul li a:hover{
 
 @media only screen and (min-width : 500px) {
     .clock {
-        width: 500px;
-        height: 500px;
+        width: 450px;
+        height: 450px;
     }
 
     .numClock {
@@ -224,8 +224,8 @@ footer ul li a:hover{
 
 @media only screen and (min-width : 768px) {
     .clock {
-        width: 700px;
-        height: 700px;
+        width: 600px;
+        height: 600px;
     }
 
 

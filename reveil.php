@@ -35,10 +35,6 @@
         <form class="setAlarm">
             <div>
                 <input type="datetime-local" name="date" id="date">
-                <!-- <input type="number" name="hour" id="hour" placeholder="HH" max="23" min="00">
-                <input type="number" name="min" id="min" placeholder="MM" max="59" min="00">
-                <input type="number" name="sec" id="sec" placeholder="SS" max="59" min="00"> -->
-
             </div>
             <p>Entrer un message</p>
             <input type="text" name="message" id="message">
@@ -61,7 +57,7 @@
     </main>
     <footer>
         <ul>
-            <li> <a href="">Accueil</a> </li>
+            <li> <a href="https://github.com/ahmed-magassouba/oclock.git">Github</a> </li>
             <li> <a href="horloge.php">Horloge</a> </li>
             <li><a href="minuteur.php">Minuteur</a> </li>
             <li><a href="chronomrtre.php">Chronomètre</a></li>

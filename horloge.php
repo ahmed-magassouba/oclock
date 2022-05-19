@@ -41,7 +41,7 @@
     </main>
     <footer>
         <ul>
-            <li> <a href="">Accueil</a> </li>
+            <li> <a href="https://github.com/ahmed-magassouba/oclock.git">Github</a> </li>
             <li> <a href="horloge.php">Horloge</a> </li>
             <li><a href="minuteur.php">Minuteur</a> </li>
             <li><a href="chronomrtre.php">Chronomètre</a></li>

@@ -169,6 +169,14 @@ main ul li {
     padding:4px;
 }
 
+.controls{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
 .set-alarm,
 .clear-alarm {
     margin: 0 10px;
@@ -194,6 +202,7 @@ background:rgba(23, 86, 221, 0.795);
 
 .clear-alarm {
     background:rgba(221, 36, 23, 0.712);
+    display: none;
 }
 .clear-alarm:hover {
     background:rgba(221, 36, 23, 0.582);

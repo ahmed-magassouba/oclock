@@ -164,11 +164,14 @@ document.addEventListener("DOMContentLoaded", function () {
    * Ajoute newAlarm à la liste non ordonnée en tant que nouvel élément de liste sur la page Web
    * @param {*} newAlarm
    */
-  function showNewAlarm(newAlarm, state) {
+  function showNewAlarm(newAlarm) {
     const html = `
       <li>        
         <span >${newAlarm}</span>
-        <span>${state}</span>
+        <span id="title"></span>
+        <span id="hours"></span>:
+        <span id="minutes"></span>:
+        <span id="seconds"></span>
         <button class="deleteAlarm time-control" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Supprimer</button>       
       </li>`;
     alarmList.innerHTML += html;
@@ -209,81 +212,8 @@ document.addEventListener("DOMContentLoaded", function () {
     messageTab[newAlarm] = message;
     console.log(messageTab);
 
-    //On fait la comparaison entre les date ppour voir si l'heure de l'alarme est passée ou pas
-
+    //On determine le temps a l'instant t
     datenow = new Date();
-
-    let state;
-    // let timeRemaining = datealarm - datenow;
-    // On crée nos constantes
-    // On recupère l'equivalent d'un jour un milliseconde
-    const dayOnMillisecond = 1000 * 60 * 60 * 24;
-    const hourOnMillisecond = 1000 * 60 * 60;
-    const minuteOnMillisecond = 1000 * 60;
-    const secondOnMillisecond = 1000;
-
-    if (datealarm < datenow) {
-      state = "Passée";
-    } else {
-      getCountdown = () => {
-        // On recupère la date du jour a l'instant t
-        let nowDate = Date.now();
-
-        // On recupère le temps restant avant la fin du decompte
-        let timeRemaining = datealarm - nowDate;
-
-        // On met le timeRemaining en format jour, heure, minute, seconde
-
-        //jours
-        let days = Math.floor(timeRemaining / dayOnMillisecond);
-        if (days < 10) {
-          days = "0" + days;
-        }
-
-        //heures
-        let restOfTimeWhithoutDay = timeRemaining - days * dayOnMillisecond;
-        let hours = Math.floor(restOfTimeWhithoutDay / hourOnMillisecond);
-        if (hours < 10) {
-          hours = "0" + hours;
-        }
-
-        //minutes
-        let restOfTimeWhithoutHour =
-          restOfTimeWhithoutDay - hours * hourOnMillisecond;
-        let minutes = Math.floor(restOfTimeWhithoutHour / minuteOnMillisecond);
-        if (minutes < 10) {
-          minutes = "0" + minutes;
-        }
-
-        //secondes
-        let restOfTimeWhithoutMinute =
-          restOfTimeWhithoutHour - minutes * minuteOnMillisecond;
-        let seconds = Math.floor(restOfTimeWhithoutMinute / 1000);
-        if (seconds < 10) {
-          seconds = "0" + seconds;
-        }
-
-        //On affiche le temps restant dnas le span de la page Web
-
-        state= `
-        <span >Temps restant</span>
-        <span >${hours}</span>
-        <span>${minutes}</span>
-        <span>${seconds}</span>
-      `;
-
-        // state = `Temps restant ${days}j : ${hours}h : ${minutes}mn : ${seconds}s`;
-         return state;
-      };
-
-      let countdownInterval = setInterval(
-        () => requestAnimationFrame(getCountdown),
-        1000
-      );
-
-      //On initialise une fonction qui va faire notre decompte
-      getCountdown();
-    }
 
     // Si l'huere est déja passé on affiche un message d'erreur
     let differenceInMs = datealarm.getTime() - datenow.getTime();
@@ -304,8 +234,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         //   showNewAlarm(newAlarm,setInterval(state,1000) );
-        showNewAlarm(newAlarm,countdownInterval);
-        
+        showNewAlarm(newAlarm);
+
         form.reset();
       } else {
         alert(`Une alarme pour ${newAlarm} est déjà définie.`);
@@ -313,6 +243,103 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       alert("Alarme invalide");
     }
+
+
+
+    //On fait la comparaison entre les date ppour voir si l'heure de l'alarme est passée ou pas
+    let li = alarmList.lastChild;
+    console.log(li);
+
+    allLi = alarmList.querySelectorAll("li");
+    console.log(allLi);
+
+    for (let i = 0; i < allLi.length; i++) {
+
+
+
+      let title = allLi[i].querySelector("#title");
+      let hrs = allLi[i].querySelector("#hours");
+      let mn = allLi[i].querySelector("#minutes");
+      let sc = allLi[i].querySelector("#seconds");
+
+
+      // let timeRemaining = datealarm - datenow;
+      // On crée nos constantes
+      // On recupère l'equivalent d'un jour un milliseconde
+      const dayOnMillisecond = 1000 * 60 * 60 * 24;
+      const hourOnMillisecond = 1000 * 60 * 60;
+      const minuteOnMillisecond = 1000 * 60;
+      const secondOnMillisecond = 1000;
+
+      if (datealarm < datenow) {
+        title.textContent = "Passée";
+      } else {
+        getCountdown = () => {
+
+          // On recupère la date du jour a l'instant t
+          let nowDate = Date.now();
+
+          // On recupère le temps restant avant la fin du decompte
+          let timeRemaining = datealarm - nowDate;
+
+          // On met le timeRemaining en format jour, heure, minute, seconde
+
+          //jours
+          let days = Math.floor(timeRemaining / dayOnMillisecond);
+          if (days < 10) {
+            days = "0" + days;
+          }
+
+          //heures
+          let restOfTimeWhithoutDay = timeRemaining - days * dayOnMillisecond;
+          let hours = Math.floor(restOfTimeWhithoutDay / hourOnMillisecond);
+          if (hours < 10) {
+            hours = "0" + hours;
+          }
+
+          //minutes
+          let restOfTimeWhithoutHour =
+            restOfTimeWhithoutDay - hours * hourOnMillisecond;
+          let minutes = Math.floor(restOfTimeWhithoutHour / minuteOnMillisecond);
+          if (minutes < 10) {
+            minutes = "0" + minutes;
+          }
+
+          //secondes
+          let restOfTimeWhithoutMinute =
+            restOfTimeWhithoutHour - minutes * minuteOnMillisecond;
+          let seconds = Math.floor(restOfTimeWhithoutMinute / 1000);
+          if (seconds < 10) {
+            seconds = "0" + seconds;
+          }
+
+          //On affiche le temps restant dnas le span de la page Web
+          allLi[i].querySelector("#title").textContent = "temps restant";
+          allLi[i].querySelector("#hours").textContent = hours;
+          allLi[i].querySelector("#minutes").textContent = minutes;
+          allLi[i].querySelector("#seconds").textContent = seconds;
+
+          if (timeRemaining <= 0) {
+            allLi[i].querySelector("#title").textContent = "Passée";
+            allLi[i].querySelector("#hours").textContent = "00";
+            allLi[i].querySelector("#minutes").textContent = "00";
+            allLi[i].querySelector("#seconds").textContent = "00";
+          }
+
+
+
+        };
+
+        let countdownInterval = setInterval(
+          () => requestAnimationFrame(getCountdown),
+          1000
+        );
+
+        //On initialise une fonction qui va faire notre decompte
+        getCountdown();
+      }
+    }
+
   });
 
   form.addEventListener("reset", (event) => {

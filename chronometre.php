@@ -66,7 +66,15 @@
         <button class="lap-clear hidden">Tout effacer</button>
     </main>
 
-    <footer></footer>
+    <footer>
+        <ul>
+            <li> <a href="">Accueil</a> </li>
+            <li> <a href="horloge.php">Horloge</a> </li>
+            <li><a href="minuteur.php">Minuteur</a> </li>
+            <li><a href="chronometre.php">Chronomètre</a></li>
+            <li><a href="reveil.php">Réveil</a> </li>
+        </ul>
+    </footer>
 
 
 </body>

@@ -19,8 +19,8 @@
     <header></header>
     <main>
 
-        <p id=title></p>
-        <p id=messageAlarm></p>
+        <p id="title"></p>
+        <p id="messageAlarm"></p>
 
         <section>
             <img src="Images/horlo.png" alt="image de l'horloge">
@@ -59,7 +59,15 @@
         </ul>
 
     </main>
-    <footer></footer>
+    <footer>
+        <ul>
+            <li> <a href="">Accueil</a> </li>
+            <li> <a href="horloge.php">Horloge</a> </li>
+            <li><a href="minuteur.php">Minuteur</a> </li>
+            <li><a href="chronomrtre.php">Chronomètre</a></li>
+            <li><a href="reveil.php">Réveil</a> </li>
+        </ul>
+    </footer>
 </body>
 
 </html>

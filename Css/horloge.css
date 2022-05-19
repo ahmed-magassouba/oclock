@@ -6,9 +6,10 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     background: #2f4f4f;
 }
 
@@ -34,8 +35,6 @@ body::after {
     clip-path: circle(20% at 70% 90%);
     z-index: 1;
 }
-
-
 
 .clock {
     width: 350px;
@@ -166,6 +165,51 @@ body::after {
 }
 
 
+main {
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    height:10%;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.4)
+}
+
+footer ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    width:100%;
+    height: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+}
+
+footer ul li a{
+  font-weight: 800;
+  text-decoration: none;
+  color:#fdfdfdda;
+  text-shadow:1px 1px #000000;
+  transition: 0.4s;
+}
+
+footer ul li a:hover{
+   color:#000000;
+   transition: 0.4s;
+  }
+
+
+
 
 @media only screen and (min-width : 500px) {
     .clock {
@@ -188,7 +232,7 @@ body::after {
     .clock:before {
         width: 25px;
         height: 25px;
-       
+
     }
 
     .hr::before {
@@ -211,7 +255,7 @@ body::after {
     .clock .hour,
     .hr {
         width: 350px;
-        height:350px;
+        height: 350px;
     }
 
     .clock .min,
